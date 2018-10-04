@@ -14,8 +14,8 @@ ActiveRecord::Schema.define(version: 20181004163703) do
 
   create_table "teachers", force: :cascade do |t|
     t.string "name"
-    t.string "time_in"
-    t.string "time_out"
+    t.datetime "time_in"
+    t.datetime "time_out"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
