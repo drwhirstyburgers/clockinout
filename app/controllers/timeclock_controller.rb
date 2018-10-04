@@ -22,6 +22,6 @@ class TimeclockController < ApplicationController
   private
 
   def sign_in_params
-    params.require(:teachers).permit(:name, :time_in, :time_out)
+    params.require(:teacher).permit(:name, :time_in, :time_out)
   end
 end

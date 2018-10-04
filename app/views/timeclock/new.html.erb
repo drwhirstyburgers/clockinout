@@ -1,2 +1,23 @@
-<h1>Timeclock#new</h1>
-<p>Find me in app/views/timeclock/new.html.erb</p>
+<h1>Clock In/Out</h1>
+
+<%= form_for @teacher do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control', placeholder: "Enter your name" %>
+  </div>
+  <%= f.hidden_field :time_in, :value => @current_time %>
+  <div class="form-group">
+    <%= f.submit "Clock In", class: 'btn btn-success' %>
+  </div>
+  <% end %>
+
+ <%= form_for @teacher do |f| %>
+   <div class="form-group">
+     <%= f.label :name %>
+     <%= f.text_field :name, class: 'form-control', placeholder: "Enter your name" %>
+   </div>
+   <%= f.hidden_field :time_out, :value => @current_time %>
+   <div class="form-group">
+     <%= f.submit "Clock Out", class: 'btn btn-success' %>
+   </div>
+<% end %>
