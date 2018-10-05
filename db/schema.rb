@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20181004163703) do
     t.string "name"
     t.string "time_in"
     t.string "time_out"
+    t.string "clock_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

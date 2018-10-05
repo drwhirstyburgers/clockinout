@@ -7,6 +7,7 @@
   </div>
   <%= f.hidden_field :time_in, :value => Time.now %>
   <%= f.hidden_field :time_out, :value => "N/A" %>
+  <%= f.hidden_field :clock_type, :value => "In" %>
   <div class="form-group">
     <%= f.submit "Clock In", class: 'btn btn-success' %>
   </div>
@@ -19,6 +20,7 @@
    </div>
    <%= f.hidden_field :time_out, :value => Time.now %>
    <%= f.hidden_field :time_in, :value => "N/A" %>
+   <%= f.hidden_field :clock_type, :value => "Out" %>
    <div class="form-group">
      <%= f.submit "Clock Out", class: 'btn btn-success' %>
    </div>
