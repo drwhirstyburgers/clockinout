@@ -8,10 +8,7 @@ class TeachersController < ApplicationController
   end
 
   def create
-    @teacher = Teacher.new
-    @teacher.name = params[:teacher][:name]
-    @teacher.time_in = params[:teacher][:time_in]
-    @teacher.time_out = params[:teacher][:time_out]
+    @teacher = Teacher.new(teacher_params)
 
     if @teacher.save
       flash[:notice] = "You have clocked in/out at #{Time.now}"
@@ -20,5 +17,11 @@ class TeachersController < ApplicationController
       flash.now[:alert] = "There was an error, please try again."
       render :new
     end
+  end
+
+  private
+
+  def teacher_params
+    params.require(:teacher).permit(:name, :time_in, :time_out)
   end
 end
