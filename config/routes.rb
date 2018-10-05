@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :teachers, only: [:new, :create, :index], :controller => "timeclock"
+  resources :teachers, only: [:index, :new, :create]
 
-  root 'timeclock#new'
+  root 'teachers#new'
 end

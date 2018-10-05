@@ -1,4 +1,4 @@
-class TimeclockController < ApplicationController
+class TeachersController < ApplicationController
   def index
     @teachers = Teacher.all
   end
@@ -8,7 +8,10 @@ class TimeclockController < ApplicationController
   end
 
   def create
-    @teacher = Teacher.new(sign_in_params)
+    @teacher = Teacher.new
+    @teacher.name = params[:teacher][:name]
+    @teacher.time_in = params[:teacher][:time_in]
+    @teacher.time_out = params[:teacher][:time_out]
 
     if @teacher.save
       flash[:notice] = "You have clocked in/out at #{Time.now}"
@@ -17,11 +20,5 @@ class TimeclockController < ApplicationController
       flash.now[:alert] = "There was an error, please try again."
       render :new
     end
-  end
-
-  private
-
-  def sign_in_params
-    params.require(:teacher).permit(:name, :time_in, :time_out)
   end
 end

@@ -5,7 +5,8 @@
     <%= f.label :name %>
     <%= f.text_field :name, class: 'form-control', placeholder: "Enter your name" %>
   </div>
-  <%= f.hidden_field :time_in, :value => @current_time %>
+  <%= f.hidden_field :time_in, :value => Time.now %>
+  <%= f.hidden_field :time_out, :value => "N/A" %>
   <div class="form-group">
     <%= f.submit "Clock In", class: 'btn btn-success' %>
   </div>
@@ -16,7 +17,8 @@
      <%= f.label :name %>
      <%= f.text_field :name, class: 'form-control', placeholder: "Enter your name" %>
    </div>
-   <%= f.hidden_field :time_out, :value => @current_time %>
+   <%= f.hidden_field :time_out, :value => Time.now %>
+   <%= f.hidden_field :time_in, :value => "N/A" %>
    <div class="form-group">
      <%= f.submit "Clock Out", class: 'btn btn-success' %>
    </div>

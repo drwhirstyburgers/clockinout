@@ -1,0 +1,31 @@
+<h1>Log</h1>
+
+<div class="row">
+   <div class="col-md-8">
+     <% @teachers.each do |f| %>
+       <% if f.time_out == "N/A" %>
+         <div class="media">
+           <div class="media-body">
+             <h4 class="media-heading">
+               <%= f.name %>
+             </h4>
+             <small>
+               Clocked in at: <%= f.time_in %>
+             </small>
+           </div>
+         </div>
+         <% else %>
+           <div class="media">
+             <div class="media-body">
+               <h4 class="media-heading">
+                 <%= f.name %>
+               </h4>
+               <small>
+                 Clocked out at: <%= f.time_out %>
+              </small>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
