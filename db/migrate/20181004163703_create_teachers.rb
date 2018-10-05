@@ -4,6 +4,7 @@ class CreateTeachers < ActiveRecord::Migration[5.1]
       t.string :name
       t.string :time_in
       t.string :time_out
+      t.string :clock_type
 
       t.timestamps
     end

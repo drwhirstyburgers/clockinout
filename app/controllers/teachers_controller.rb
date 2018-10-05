@@ -22,6 +22,6 @@ class TeachersController < ApplicationController
   private
 
   def teacher_params
-    params.require(:teacher).permit(:name, :time_in, :time_out)
+    params.require(:teacher).permit(:name, :time_in, :time_out, :clock_type)
   end
 end
