@@ -12,7 +12,7 @@ class TeachersController < ApplicationController
 
     if @teacher.save
       flash[:notice] = "You have clocked in/out at #{Time.now}"
-      render :index
+      redirect_to action: :index
     else
       flash.now[:alert] = "There was an error, please try again."
       render :new
