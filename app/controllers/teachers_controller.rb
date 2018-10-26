@@ -11,11 +11,28 @@ class TeachersController < ApplicationController
     @teacher = Teacher.new(teacher_params)
 
     if @teacher.save
-      flash[:notice] = "You have clocked in/out at #{Time.now}"
+      flash[:notice] = "You have clocked in at #{Time.now}"
       redirect_to action: :index
     else
       flash.now[:alert] = "There was an error, please try again."
       render :new
+    end
+  end
+
+  def edit
+    @teacher = Teacher.find(params[:id])
+  end
+
+  def update
+    @teacher = Teacher.find(params[:id])
+    @teacher.assign_attributes(teacher_params)
+
+    if @teacher.save
+      flash[:notice] = "You have clocked out at #{Time.now}"
+      redirect_to action: :index
+    else
+      flash.now[:alert] = "There was an error, please try again."
+      render :edit
     end
   end
 

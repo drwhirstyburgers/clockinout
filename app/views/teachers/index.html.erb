@@ -3,26 +3,36 @@
 <div class="row">
    <div class="col-md-8">
      <% @teachers.each do |f| %>
+       <% if f.clock_type == "In"  && f.count == 1 %>
+         <h3>Currently Working</h3>
+       <% end %>
+     <% end %>
+     <% @teachers.each do |f| %>
        <% if f.clock_type == "In" %>
          <div class="media">
            <div class="media-body">
              <h4 class="media-heading">
-               <%= f.name %>
+               <%= f.name %> <%= link_to "Clock Out", edit_teacher_path(f), class: 'btn btn-success' %>
              </h4>
              <small>
                Clocked in at: <%= f.time_in %>
              </small>
            </div>
          </div>
-         <% else %>
-           <div class="media">
-             <div class="media-body">
-               <h4 class="media-heading">
-                 <%= f.name %>
-               </h4>
-               <small>
-                 Clocked out at: <%= f.time_out %>
-              </small>
+       <% end %>
+     <% end %>
+     <h3>Completed Shifts</h3>
+     <% @teachers.each do |f| %>
+       <% if f.clock_type == "Out" %>
+         <div class="media">
+           <div class="media-body">
+             <h4 class="media-heading">
+               <%= f.name %>
+             </h4>
+             <small>
+               Worked from <%= f.time_in %> to <%= f.time_out %>
+             </small>
+             <p>Shift Length: <%= shift_length(f.time_in, f.time_out) %></p>
             </div>
           </div>
         <% end %>

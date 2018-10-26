@@ -1,0 +1,8 @@
+<h1>Clock Out</h1>
+<%= form_for @teacher do |f| %>
+  <%= f.hidden_field :time_out, :value => Time.now %>
+  <%= f.hidden_field :clock_type, :value => "Out" %>
+  <div class="form-group">
+    <%= f.submit "Clock Out", class: 'btn btn-success' %>
+  </div>
+<% end %>
