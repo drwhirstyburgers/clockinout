@@ -11,3 +11,6 @@
 - I decided to test out whether I could just have the update/search function available on a page I created called clockout.html.erb.
 - I realized that I could avoid updating the wrong event with an analogous name by adding a second condition that tested for the clock_out type.
 - attempted a helper method to update the clockout attributes from the index view but couldn't figure out how to pass the @teacher variable to the method to update its attributes.
+- I think there are two easier ways to do this:
+  - #1: from the index make the clock ins links that then take you to the show and have a button that clocks you out and updates the event
+  - #2: create a new teacher model that functions like a user with a log in and then create a clock in model and a clock out model and create a one-to-many association between the teacher model and the clock in/clock out models.
