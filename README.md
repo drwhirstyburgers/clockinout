@@ -14,3 +14,6 @@
 - I think there are two easier ways to do this:
   - #1: from the index make the clock ins links that then take you to the show and have a button that clocks you out and updates the event
   - #2: create a new teacher model that functions like a user with a log in and then create a clock in model and a clock out model and create a one-to-many association between the teacher model and the clock in/clock out models.
+  - I have created the first way in a branch called clockout-method-1
+    - Here I have also added shift length by utilizing a helper method called shift length that can be called in the index that calculates the duration of the shift in hours.
+    - the problem I see with this method is it is kind of long winded and redundant; the user has to go to the log and then click the punch out button next to their name, their is also no way to validate if the person clocking out is the person who clocked in. 
