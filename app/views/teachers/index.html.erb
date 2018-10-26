@@ -12,6 +12,7 @@
              <small>
                Clocked in at: <%= f.time_in %>
              </small>
+             <%= link_to "Clock Out", @teacher, class: 'btn btn-primary btn-sm', method: :clock_out, data: {confirm: 'Are you sure you want to clock out?'} %>
            </div>
          </div>
          <% else %>

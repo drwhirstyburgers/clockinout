@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :teachers, only: [:new, :create, :show, :update]
+  resources :teachers, only: [:new, :create]
 
   get '/teachers', to: 'teachers#index'
 
